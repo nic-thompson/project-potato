@@ -1,0 +1,23 @@
+name: Project Potato
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    env:
+      CI: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js version 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: npm i --prefix client
+      - run: npm i --prefix comments
+      - run: npm i --prefix event-bus
+      - run: npm i --prefix moderation
+      - run: npm i --prefix posts
+      - run: npm i --prefix query
