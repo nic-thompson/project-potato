@@ -1,9 +1,11 @@
-import React from 'react';
+import PostCreate from './PostCreate';
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Project Potato</h1>
+      <h2>Create Post</h2>
+      <PostCreate />
     </div>
   );
 };
