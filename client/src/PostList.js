@@ -8,8 +8,14 @@ const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const response = await axios.get('http://localhost:4002/posts');
-    setPosts(response.data);
+    const response = await axios
+      .get('http://localhost:4002/posts')
+      .catch((error) => {
+        console.log(error);
+      });
+    if (response) {
+      setPosts(response.data);
+    }
   };
 
   useEffect(() => {
